@@ -1,0 +1,36 @@
+.contForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.allFields {
+    display: flex;
+    flex-direction: row;
+}
+
+.fieldContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.formbutton {
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldName {
+    margin-bottom: 0;
+}
+
+.errorMes {
+    color: red;
+    font-size: small;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
