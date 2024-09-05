@@ -36,7 +36,8 @@ const ContactForm = () => {
 
     const contactSchema = Yup.object().shape({
     name: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
-    number: Yup.number().required("Required")
+    //number: Yup.number().required("Required")
+    number: Yup.string().matches(/^\d{3}-\d{3}-\d{4}$/, 'Wrong format').required('Required'),
     })
 
   return (
@@ -51,7 +52,7 @@ const ContactForm = () => {
                       
                   <div className={css.fieldContainer}>
                       <p className={css.fieldName}>Number</p>
-                      <Field type="number" name="number" id={numberId} />
+                      <Field type="string" name="number" id={numberId} />
                       <ErrorMessage name="number" component="span" className={css.errorMes} />
                   </div>
               </div>

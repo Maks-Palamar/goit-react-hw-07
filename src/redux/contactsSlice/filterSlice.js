@@ -1,6 +1,7 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
 import { INITIAL_STATE } from "./contactsSlice";
 import { selectContacts } from "./contactsSlice";
+import { useMemo } from "react";
 
 const filterSlice = createSlice({
     name: "filter",
@@ -24,9 +25,14 @@ export const selectFilter = state => state.filter.name
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectFilter],
   (contacts, filter) => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
+
+    const filteredContacts =  contacts.filter((contact) =>
+      contact.name.toLowerCase().includes(filter.toLowerCase()) || contact.number.toLowerCase().includes(filter.toLowerCase())
     );
+
+    return filteredContacts;
+
+
   }
 );
 
